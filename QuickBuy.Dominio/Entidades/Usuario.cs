@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QuickBuy.Dominio.Entidades
 {
-    class Usuario : Entidade
+    public class Usuario : Entidade
     {
         [Display(Name = "Usuario")]
         public int UserId { get; set; }

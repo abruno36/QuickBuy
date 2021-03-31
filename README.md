@@ -25,7 +25,7 @@
 > ## Tecnologias
 >
 > **Frameworks:**  
-> - *.Net CORE 5.0 com Angular*  
+> - *.Net CORE 2.2 com Angular 11.2.3 Node: 14.16.0*  
 >
 > **Tipo de Banco de dados:**  
 > - *SQL Server*
@@ -46,6 +46,9 @@
 > **Nível de Acesso:**   
 > **Número aproximados de usuários:**  20
 ---
+
+
+
 
 
 
