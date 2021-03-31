@@ -15,6 +15,8 @@ namespace QuickBuy.Dominio.Entidades
 
         public int UserId { get; set; }
 
+        public virtual Usuario Usuario { get; set; }
+
         [Display(Name = "Dt prev do Pedido")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]

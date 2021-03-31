@@ -1,0 +1,9 @@
+{
+  "ConnectionStrings": {
+    "SqlServerConnection": "",
+    "QuickBuyDB": "server=mysql5019.site4now.net;uid=a57906_qbbase;pwd=abc123456;database=db_a57906_qbbase"
+  }
+}
+
+
+
