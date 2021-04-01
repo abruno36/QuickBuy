@@ -8,7 +8,7 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Pedido> builder)
         {
-            builder.HasKey(p => p.PedidoId);
+            builder.HasKey(p => p.Id);
 
             builder
                 .Property(p => p.DataPedido)
@@ -26,12 +26,12 @@ namespace QuickBuy.Repositorio.Config
             builder
                 .Property(p => p.Cidade)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(50);
 
             builder
                 .Property(p => p.Estado)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(10);
 
 
             builder

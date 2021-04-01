@@ -8,7 +8,7 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<FormaPagamento> builder)
         {
-            builder.HasKey(f => f.FormaId);
+            builder.HasKey(f => f.Id);
             builder
                 .Property(f => f.Nome)
                 .IsRequired()

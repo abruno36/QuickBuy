@@ -6,8 +6,7 @@ namespace QuickBuy.Dominio.Entidades
 {
     public class Usuario : Entidade
     {
-        [Display(Name = "Usuario")]
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Informe o email")]
         [StringLength(50)]
@@ -32,7 +31,7 @@ namespace QuickBuy.Dominio.Entidades
         /// <summary>
         /// Um usuário pode ter nenhum ou muitos pedidos
         /// </summary>
-        public ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validate()
         {

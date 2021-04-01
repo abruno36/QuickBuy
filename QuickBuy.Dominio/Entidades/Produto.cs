@@ -6,7 +6,7 @@ namespace QuickBuy.Dominio.Entidades
     public class Produto : Entidade
     {
         [Display(Name = "Produto")]
-        public int ProdutoId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do Produto")]
         [Display(Name = "Nome")]

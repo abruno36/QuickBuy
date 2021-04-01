@@ -10,7 +10,7 @@ namespace QuickBuy.Dominio.ObjetoDeValor
     public class FormaPagamento
     {
         [Display(Name = "Forma")]
-        public int FormaId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Informe nome da forma")]
         [Display(Name = "Nome")]
@@ -22,22 +22,22 @@ namespace QuickBuy.Dominio.ObjetoDeValor
 
         public bool EhBoleto
         {
-            get { return FormaId == (int)TipoFormaPagamentoEnum.Boleto; } 
+            get { return Id == (int)TipoFormaPagamentoEnum.Boleto; } 
         }
 
         public bool EhCartaoCredito
         {
-            get { return FormaId == (int)TipoFormaPagamentoEnum.CartaoCredito; }
+            get { return Id == (int)TipoFormaPagamentoEnum.CartaoCredito; }
         }
 
         public bool EhDeposito
         {
-            get { return FormaId == (int)TipoFormaPagamentoEnum.Deposito; }
+            get { return Id == (int)TipoFormaPagamentoEnum.Deposito; }
         }
 
         public bool NaoFoiDefinido
         {
-            get { return FormaId == (int)TipoFormaPagamentoEnum.NaoDefinido; }
+            get { return Id == (int)TipoFormaPagamentoEnum.NaoDefinido; }
         }
     }
 }

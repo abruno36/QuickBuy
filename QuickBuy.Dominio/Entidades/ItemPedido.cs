@@ -8,7 +8,7 @@ namespace QuickBuy.Dominio.Entidades
     public class ItemPedido : Entidade
     {
         [Display(Name = "Item Pedido")]
-        public int ItemId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Produto")]
         public int ProdutoId { get; set; }

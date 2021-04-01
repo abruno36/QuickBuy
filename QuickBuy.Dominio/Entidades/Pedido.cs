@@ -9,11 +9,11 @@ namespace QuickBuy.Dominio.Entidades
     public class Pedido : Entidade
     {
         [Display(Name = "Pedido")]
-        public int PedidoId { get; set; }
+        public int Id { get; set; }
 
         public DateTime DataPedido { get; set; }
 
-        public int UserId { get; set; }
+        public int UsuarioId { get; set; }
 
         public virtual Usuario Usuario { get; set; }
 

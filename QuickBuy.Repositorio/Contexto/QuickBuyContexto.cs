@@ -29,17 +29,17 @@ namespace QuickBuy.Repositorio.Contexto
 
             modelBuilder.Entity<FormaPagamento>().HasData(
                 new FormaPagamento() {
-                    FormaId = 1, Nome = "Boleto",
+                    Id = 1, Nome = "Boleto",
                     Descricao = "Forma de Pagamento Boleto" },
                 new FormaPagamento()
                 {
-                    FormaId = 2,
+                    Id = 2,
                     Nome = "Cartao de Crédito",
                     Descricao = "Forma de Pagamento Cartão de Crédito"
                 },
                 new FormaPagamento()
                 {
-                    FormaId = 3,
+                    Id = 3,
                     Nome = "Depósito",
                     Descricao = "Forma de Pagamento Depósito"
                 }
