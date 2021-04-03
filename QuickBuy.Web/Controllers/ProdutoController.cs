@@ -17,7 +17,7 @@ namespace QuickBuy.Web.Controllers
         private IHttpContextAccessor _httpContextAccessor;
         //private IWebHostEnvironment _hostingEnvironment;
         public ProdutoController(IProdutoRepositorio produtoRepositorio, 
-                                    IHttpContextAccessor httpContextAccessor/*, IWebHostEnvironment hostingEnvironment*/)
+                                 IHttpContextAccessor httpContextAccessor/*, IWebHostEnvironment hostingEnvironment*/)
         {            
             _produtoRepositorio = produtoRepositorio;
             _httpContextAccessor = httpContextAccessor;
@@ -63,7 +63,7 @@ namespace QuickBuy.Web.Controllers
             }
         }
 
-        [HttpPost("Deletar")]
+        [HttpPost]
         public IActionResult Deletar([FromBody] Produto produto)
         {
             try { 
