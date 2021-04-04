@@ -34,7 +34,6 @@
             'is-invalid':senha.invalid && (senha.dirty || senha.touched),
             'is-valid':senha.valid && (senha.dirty || senha.touched)
            }"
-           
            required/>
     <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
       <div *ngIf="senha.errors.required">
