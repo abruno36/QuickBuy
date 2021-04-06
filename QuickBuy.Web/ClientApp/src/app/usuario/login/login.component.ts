@@ -30,21 +30,35 @@ export class LoginComponent implements OnInit {
     this.ativar_spinner = true;
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
-        usuario_json => {
-          // essa linha será executada no caso de retorno sem erros                          
-          this.usuarioServico.usuario = usuario_json;
 
-          if (this.returnUrl == null) {
-            this.router.navigate(['/']);
-          } else {
-            this.router.navigate([this.returnUrl]);
-          }
+        data => {
+          // essa linha será executada no caso de retorno sem erros                          
+          var usuarioRetorno: Usuario;
+          usuarioRetorno = data;
+          sessionStorage.setItem("usuario-autenticado", "1");
+          sessionStorage.setItem("email-usuario", usuarioRetorno.email);
+          this.router.navigate([this.returnUrl]);
         },
         err => {
           console.log(err.error);
           this.mensagem = err.error;
           this.ativar_spinner = false;
         }
+       //usuario_json => {
+       //   // essa linha será executada no caso de retorno sem erros                          
+       //   this.usuarioServico.usuario = usuario_json;
+
+       //   if (this.returnUrl == null) {
+       //     this.router.navigate(['/']);
+       //   } else {
+       //     this.router.navigate([this.returnUrl]);
+       //   }
+       // },
+       // err => {
+       //   console.log(err.error);
+       //   this.mensagem = err.error;
+       //   this.ativar_spinner = false;
+       // }
       );          
   }
     
