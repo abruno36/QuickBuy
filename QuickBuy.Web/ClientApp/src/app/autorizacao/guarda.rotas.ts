@@ -7,18 +7,17 @@ import { UsuarioServico } from "../servicos/usuario/usuario.servico";
 })
 export class GuardaRotas implements CanActivate {
     
-    constructor(private router: Router) {
+  constructor(private router: Router, private usuarioServico: UsuarioServico) {
       
     }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    var autenticado = sessionStorage.getItem("usuario-autenticado");
-    if (autenticado == "1") {
+
+    if (this.usuarioServico.usuario_autenticado()) {
       return true;
     }
-    //alert(state.url);
     this.router.navigate(['/entrar'], { queryParams: { returnUrl: state.url } });
     return false;
-    }
+  }
     
 }
