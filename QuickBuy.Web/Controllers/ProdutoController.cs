@@ -15,7 +15,7 @@ namespace QuickBuy.Web.Controllers
 
         private readonly IProdutoRepositorio _produtoRepositorio;
         private IHttpContextAccessor _httpContextAccessor;
-        //private IWebHostEnvironment _hostingEnvironment;
+        private IWebHostEnvironment _hostingEnvironment;
         public ProdutoController(IProdutoRepositorio produtoRepositorio, 
                                  IHttpContextAccessor httpContextAccessor/*, IWebHostEnvironment hostingEnvironment*/)
         {            
@@ -63,7 +63,7 @@ namespace QuickBuy.Web.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("Deletar")]
         public IActionResult Deletar([FromBody] Produto produto)
         {
             try { 
@@ -78,31 +78,31 @@ namespace QuickBuy.Web.Controllers
             }
         }
 
-        //[HttpPost("EnviarArquivo")]
-        //public IActionResult EnviarArquivo()
-        //{
-        //    try
-        //    {
-        //        var formFile = _httpContextAccessor.HttpContext.Request.Form.Files["arquivoEnviado"];
-        //        var nomeArquivo = formFile.FileName;
-        //        var extensao = nomeArquivo.Split(".").Last();
-        //        string novoNomeArquivo = GerarNovoNomeArquivo(nomeArquivo, extensao);
-        //        var pastaArquivos = _hostingEnvironment.WebRootPath + "\\arquivos\\";
-        //        var nomeCompleto = pastaArquivos + novoNomeArquivo;
+        [HttpPost("EnviarArquivo")]
+        public IActionResult EnviarArquivo()
+        {
+            try
+            {
+                var formFile = _httpContextAccessor.HttpContext.Request.Form.Files["arquivoEnviado"];
+                var nomeArquivo = formFile.FileName;
+                var extensao = nomeArquivo.Split(".").Last();
+                string novoNomeArquivo = GerarNovoNomeArquivo(nomeArquivo, extensao);
+                //var pastaArquivos = _hostingEnvironment.WebRootPath + "\\arquivos\\";
+                //var nomeCompleto = pastaArquivos + novoNomeArquivo;
 
-        //        using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
-        //        {
-        //            formFile.CopyTo(streamArquivo);
-        //        }
+                //using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
+                //{
+                //    formFile.CopyTo(streamArquivo);
+                //}
 
-        //        return Json(novoNomeArquivo);
+                return Json(novoNomeArquivo);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.ToString());
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
 
         private static string GerarNovoNomeArquivo(string nomeArquivo, string extensao)
         {

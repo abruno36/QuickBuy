@@ -49,13 +49,13 @@ export class ProdutoComponent implements OnInit {
       .subscribe(
         produtoJson => {
           console.log(produtoJson);
-          //this.desativarEspera();
-          //this.router.navigate(['/pesquisar-produto']);
+          this.desativarEspera();
+          this.router.navigate(['/pesquisar-produto']);
         },
         e => {
           console.log(e.error);
           this.mensagem = e.error;
-          //this.desativarEspera();
+          this.desativarEspera();
         }
       );
   }
