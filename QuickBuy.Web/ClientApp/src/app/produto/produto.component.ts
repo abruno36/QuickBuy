@@ -13,6 +13,7 @@ export class ProdutoComponent implements OnInit {
   public arquivoSelecionado: File;
   public ativar_spinner: boolean;
   public mensagem: string;
+  public produtoCadastrado: boolean;
 
   constructor(private produtoServico: ProdutoServico, private router: Router) {
 
@@ -49,6 +50,7 @@ export class ProdutoComponent implements OnInit {
       .subscribe(
         produtoJson => {
           console.log(produtoJson);
+          this.produtoCadastrado = true;
           this.desativarEspera();
           this.router.navigate(['/pesquisar-produto']);
         },

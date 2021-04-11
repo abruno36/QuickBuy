@@ -54,7 +54,7 @@ namespace QuickBuy.Web.Controllers
                 {
                     _produtoRepositorio.Adicionar(produto);
                 }
-                
+
                 return Created("api/produto", produto);
 
             }catch(Exception ex)
