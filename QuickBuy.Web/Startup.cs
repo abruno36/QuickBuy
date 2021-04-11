@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Repositorio.Contexto;
 using QuickBuy.Repositorio.Repositorios;
@@ -26,15 +27,12 @@ namespace QuickBuy.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            var connectionString = Configuration.GetConnectionString("QuickBuyDB");
-            services.AddDbContext<QuickBuyContexto>(option =>
-                                                        option.UseLazyLoadingProxies()
-                                                        .UseMySql(connectionString,
-                                                                            m => m.MigrationsAssembly("QuickBuy.Repositorio")));
+            services.AddDbContext<QuickBuyContexto>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("QuickBuyDB")));
 
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
@@ -48,7 +46,7 @@ namespace QuickBuy.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -64,13 +62,9 @@ namespace QuickBuy.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseRouting();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.UseSpa(spa =>
             {

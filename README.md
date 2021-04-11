@@ -25,10 +25,10 @@
 > ## Tecnologias
 >
 > **Frameworks:**  
-> - *.Net CORE 2.2 com Angular 11.2.3 Node: 14.16.0*  
+> - *.Net CORE 5.0.202 com Angular 11.2.3 Node: 14.16.0*  
 >
 > **Tipo de Banco de dados:**  
-> - *SQL Server*
+> - *MySql Server*
 >
 > **Dispositivos Específicos:**  
 >

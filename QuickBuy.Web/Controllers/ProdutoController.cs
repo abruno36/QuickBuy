@@ -17,11 +17,11 @@ namespace QuickBuy.Web.Controllers
         private IHttpContextAccessor _httpContextAccessor;
         private IWebHostEnvironment _hostingEnvironment;
         public ProdutoController(IProdutoRepositorio produtoRepositorio, 
-                                 IHttpContextAccessor httpContextAccessor/*, IWebHostEnvironment hostingEnvironment*/)
+                                 IHttpContextAccessor httpContextAccessor, IWebHostEnvironment hostingEnvironment)
         {            
             _produtoRepositorio = produtoRepositorio;
             _httpContextAccessor = httpContextAccessor;
-            //_hostingEnvironment = hostingEnvironment;
+            _hostingEnvironment = hostingEnvironment;
         }
         
         [HttpGet]
@@ -87,13 +87,13 @@ namespace QuickBuy.Web.Controllers
                 var nomeArquivo = formFile.FileName;
                 var extensao = nomeArquivo.Split(".").Last();
                 string novoNomeArquivo = GerarNovoNomeArquivo(nomeArquivo, extensao);
-                //var pastaArquivos = _hostingEnvironment.WebRootPath + "\\arquivos\\";
-                //var nomeCompleto = pastaArquivos + novoNomeArquivo;
+                var pastaArquivos = _hostingEnvironment.WebRootPath + "\\arquivos\\";
+                var nomeCompleto = pastaArquivos + novoNomeArquivo;
 
-                //using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
-                //{
-                //    formFile.CopyTo(streamArquivo);
-                //}
+                using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
+                {
+                    formFile.CopyTo(streamArquivo);
+                }
 
                 return Json(novoNomeArquivo);
 

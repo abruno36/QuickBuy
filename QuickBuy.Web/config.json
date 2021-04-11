@@ -1,7 +1,6 @@
 {
   "ConnectionStrings": {
-    "SqlServerConnection": "",
-    "QuickBuyDB": "server=127.0.0.1;uid=root;pwd=12345;database=QuickBuyDB"
+    "QuickBuyDB": "Data Source=CTS1A965294\\SQLEXPRESS; Initial Catalog=QuickBuyDB;Integrated Security=True"
   }
 }
 

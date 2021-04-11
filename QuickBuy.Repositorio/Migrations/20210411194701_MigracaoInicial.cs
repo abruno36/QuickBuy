@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickBuy.Repositorio.Migrations
 {
-    public partial class PrimeiraVersaoBase : Migration
+    public partial class MigracaoInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +11,10 @@ namespace QuickBuy.Repositorio.Migrations
                 name: "FormaPagamento",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(maxLength: 50, nullable: false),
-                    Descricao = table.Column<string>(maxLength: 100, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,11 +25,12 @@ namespace QuickBuy.Repositorio.Migrations
                 name: "Produtos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(maxLength: 50, nullable: false),
-                    Descricao = table.Column<string>(maxLength: 400, nullable: false),
-                    Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
+                    Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NomeArquivo = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,12 +41,12 @@ namespace QuickBuy.Repositorio.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Email = table.Column<string>(maxLength: 50, nullable: false),
-                    Senha = table.Column<string>(maxLength: 400, nullable: false),
-                    Nome = table.Column<string>(maxLength: 50, nullable: false),
-                    Sobrenome = table.Column<string>(maxLength: 50, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Senha = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Sobrenome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,17 +57,17 @@ namespace QuickBuy.Repositorio.Migrations
                 name: "Pedidos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    DataPedido = table.Column<DateTime>(nullable: false),
-                    UsuarioId = table.Column<int>(nullable: false),
-                    DataPrevisaoEntrega = table.Column<DateTime>(nullable: false),
-                    CEP = table.Column<string>(maxLength: 10, nullable: false),
-                    Estado = table.Column<string>(maxLength: 10, nullable: false),
-                    Cidade = table.Column<string>(maxLength: 50, nullable: false),
-                    EnderecoCompleto = table.Column<string>(maxLength: 100, nullable: false),
-                    EnderecoNumero = table.Column<string>(maxLength: 10, nullable: false),
-                    FormaPagamentoId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DataPedido = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
+                    DataPrevisaoEntrega = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CEP = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Cidade = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    EnderecoCompleto = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    EnderecoNumero = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    FormaPagamentoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,11 +90,11 @@ namespace QuickBuy.Repositorio.Migrations
                 name: "ItensPedidos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProdutoId = table.Column<int>(nullable: false),
-                    Quantidade = table.Column<int>(nullable: false),
-                    PedidoId = table.Column<int>(nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProdutoId = table.Column<int>(type: "int", nullable: false),
+                    Quantidade = table.Column<int>(type: "int", nullable: false),
+                    PedidoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
