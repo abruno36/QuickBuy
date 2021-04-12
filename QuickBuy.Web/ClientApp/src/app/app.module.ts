@@ -29,7 +29,7 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'produto', component: ProdutoComponent},
+      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
       { path: "novo-usuario", component: CadastroUsuarioComponent }
     ])
@@ -39,4 +39,4 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
 })
 export class AppModule { }
 
-//{ path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
+

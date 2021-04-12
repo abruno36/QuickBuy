@@ -35,6 +35,7 @@ export class ProdutoComponent implements OnInit {
       .subscribe(
         nomeArquivo => {
           this.produto.nomeArquivo = nomeArquivo;
+          /*alert(this.produto.nomeArquivo);*/
           console.log(nomeArquivo);
           this.ativar_spinner = false;
         },
