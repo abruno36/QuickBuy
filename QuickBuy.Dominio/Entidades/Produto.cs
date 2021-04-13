@@ -31,7 +31,7 @@ namespace QuickBuy.Dominio.Entidades
                 AdicionarCritica("Nome do produto não foi informado");
 
             if (string.IsNullOrEmpty(Descricao))
-                AdicionarCritica("Descrição não foi informado");
+                AdicionarCritica("Descrição não foi informada");
 
         }
     }
