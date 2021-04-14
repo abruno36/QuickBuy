@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Produto } from "../../modelo/produto";
 import { ProdutoServico } from "../../servicos/produto/produto.servico";
-import { Router } from "@angular/router";
+import { Router } from "@angular/router"; 
 
 @Component({
   selector: "pesquisa-produto",
