@@ -37,6 +37,7 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
       { path: 'entrar', component: LoginComponent },
       { path: "novo-usuario", component: CadastroUsuarioComponent },
       { path: "pesquisar-produto", component: PesquisaProdutoComponent }
+
     ])
   ],
   providers: [UsuarioServico, ProdutoServico],
