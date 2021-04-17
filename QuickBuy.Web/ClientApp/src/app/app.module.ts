@@ -15,6 +15,7 @@ import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { ProdutoServico } from './servicos/produto/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
+import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
     LoginComponent,
     CadastroUsuarioComponent,
     PesquisaProdutoComponent,
-    LojaPesquisaComponent
+    LojaPesquisaComponent,
+    LojaProdutoComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +39,8 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
       { path: 'produto', component: ProdutoComponent, },
       { path: 'entrar', component: LoginComponent },
       { path: "novo-usuario", component: CadastroUsuarioComponent },
-      { path: "pesquisar-produto", component: PesquisaProdutoComponent }
+      { path: "pesquisar-produto", component: PesquisaProdutoComponent },
+      { path: "loja-produto", component: LojaProdutoComponent }
 
     ])
   ],
