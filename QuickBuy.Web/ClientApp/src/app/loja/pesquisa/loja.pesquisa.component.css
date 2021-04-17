@@ -1,1 +1,5 @@
-
+#mudacard:hover {
+  background-color: #F0F8FF;
+  transition: 0.5s;
+  opacity: 0.7;
+}

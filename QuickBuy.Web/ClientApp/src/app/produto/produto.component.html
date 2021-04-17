@@ -1,3 +1,4 @@
+
 <h1 class="h4 titulo">Cadastro de Produto</h1>
 <label for="inputNome" class="sr-only">Nome</label>
 <input type="text" id="inputNome"
@@ -29,7 +30,7 @@
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
        required
-       minlength="70"/>
+       minlength="70" />
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched) ">
   <div *ngIf="descricao.errors.required">
     Descrição do produto é de preenchimento obrigatório
@@ -51,7 +52,7 @@
        }"
        [(ngModel)]="produto.preco"
        #preco="ngModel"
-       required/>
+       required />
 
 <div class="invalid-feedback mb-2" *ngIf="preco.invalid && (preco.dirty || preco.touched) ">
   <div *ngIf="preco.errors.required">
@@ -69,14 +70,14 @@
 <div class="form-inline">
   <button class="btn btn-primary" style="margin-right:4px;" (click)="cadastrar()" [disabled]="ativar_spinner">
     <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
-    Cadastrar
+    Cadastrar <span class="glyphicon glyphicon-floppy-saved"></span>
   </button>
   <button class="btn btn-secondary" [routerLink]="['/pesquisar-produto']">Cancelar</button>
 </div>
-<br/>
+<br />
 <div class="alert alert-danger col-md-4" *ngIf="mensagem">
-    {{mensagem}}
+  {{mensagem}}
 </div>
-<br/>
-<div class="alert alert-success  col-md-4" *ngIf="produtoCadastrado" >Produto cadastrado com sucesso!</div>
+<br />
+<div class="alert alert-success  col-md-4" *ngIf="produtoCadastrado">Produto cadastrado com sucesso!</div>
 

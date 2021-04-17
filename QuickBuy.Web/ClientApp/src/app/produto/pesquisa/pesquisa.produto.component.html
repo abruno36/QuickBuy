@@ -1,7 +1,9 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <h1 class="h4 titulo mb-2">Pesquisa de Produtos</h1>
 <p *ngIf="!produtos">Carregando Produtos...</p>
 
-<button class="btn btn-primary mb-2" (click)="adicionarProduto()">Adicionar Produto</button>
+<button class="btn btn-primary mb-2" (click)="adicionarProduto()">Adicionar Produto <span class="glyphicon glyphicon-floppy-disk"></span></button>
 
 <table class="table table-hover" *ngIf="produtos">
   <thead>
@@ -10,8 +12,8 @@
       <th>Descrição</th>
       <th>Preço</th>
       <th>Imagem</th>
-      <th></th>
-      <th></th>
+      <th>Ações</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -20,8 +22,8 @@
       <td style="width:50%">{{p.descricao}}</td>
       <td style="width:10%">R$ {{p.preco}}</td>
       <td><img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:60px;height:60px" /></td>
-      <td><button class="btn btn-success btn-sm" (click)="editarProduto(p)">Editar</button></td>
-      <td><button class="btn btn-danger btn-sm" (click)="deletarProduto(p)">Deletar</button></td>      
+      <td><button class="btn  btn-primary btn-xs" (click)="editarProduto(p)" style="margin-top: 10px"><span class="glyphicon glyphicon-pencil"></span></button></td>
+      <td><button class="btn btn-danger btn-xs" (click)="deletarProduto(p)" style="margin-left: -55px; margin-top: 10px"><span class="glyphicon glyphicon-trash"></span></button></td>
     </tr>
   </tbody>
 
