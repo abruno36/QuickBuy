@@ -41,6 +41,8 @@ namespace QuickBuy.Web.Controllers
                 //if (usuario.Email == "abruno36@gmail.com" && usuario.Senha == "abt038905")
                 //    return Ok(usuario);
 
+
+
                 return BadRequest("Usuário ou senha inválido");
 
             }
@@ -65,7 +67,7 @@ namespace QuickBuy.Web.Controllers
                 //if(!usuarioCadastrado.EhValido)
                 //    return BadRequest(usuarioCadastrado.ObterMensagensValidacao());
 
-                //usuario.EhAdministrador = true;
+                //usuario.EhAdministrador = true; ou direto na base de dados
                 _usuarioRepositorio.Adicionar(usuario);
 
                 return Ok();

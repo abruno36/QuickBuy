@@ -28,6 +28,8 @@ namespace QuickBuy.Dominio.Entidades
         [StringLength(50)]
         public string Sobrenome { get; set; }
 
+        public bool EhAdministrador { get; set; }
+
         /// <summary>
         /// Um usuário pode ter nenhum ou muitos pedidos
         /// </summary>
