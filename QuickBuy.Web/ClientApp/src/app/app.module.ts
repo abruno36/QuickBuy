@@ -16,6 +16,8 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
+import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
+import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realizada.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
     PesquisaProdutoComponent,
     LojaPesquisaComponent,
     LojaProdutoComponent,
+    LojaEfetivarComponent,
+    LojaCompraRealizadaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,12 +40,13 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
     TruncateModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'produto', component: ProdutoComponent, },
+      { path: 'produto', component: ProdutoComponent}, 
       { path: 'entrar', component: LoginComponent },
       { path: "novo-usuario", component: CadastroUsuarioComponent },
       { path: "pesquisar-produto", component: PesquisaProdutoComponent },
-      { path: "loja-produto", component: LojaProdutoComponent }
-
+      { path: "loja-produto", component: LojaProdutoComponent },
+      { path: "loja-efetivar", component: LojaEfetivarComponent},
+      { path: "compra-realizada-sucesso", component: LojaCompraRealizadaComponent }
     ])
   ],
   providers: [UsuarioServico, ProdutoServico],
@@ -49,4 +54,5 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 })
 export class AppModule { }
 
-/*{ path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },*/
+//{ path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
+//{ path: "loja-efetivar", component: LojaEfetivarComponent, canActivate: [GuardaRotas] },
