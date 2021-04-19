@@ -18,6 +18,7 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
 import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realizada.component';
+import { PedidoServico } from './servicos/pedido/pedido.servico';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realiz
       { path: "compra-realizada-sucesso", component: LojaCompraRealizadaComponent }
     ])
   ],
-  providers: [UsuarioServico, ProdutoServico],
+  providers: [UsuarioServico, ProdutoServico, PedidoServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -40,7 +40,7 @@ namespace QuickBuy.Repositorio.Config
                 .HasMaxLength(100);
 
             builder
-                .Property(p => p.EnderecoNumero)
+                .Property(p => p.NumeroEndereco)
                 .IsRequired();
 
             //builder.HasOne(p => p.Usuario); 

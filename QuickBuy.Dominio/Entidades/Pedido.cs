@@ -43,7 +43,7 @@ namespace QuickBuy.Dominio.Entidades
         [StringLength(10)]
         [Required(ErrorMessage = "Informe numero da residência")]
         [Display(Name = "Número")]
-        public string EnderecoNumero { get; set; }
+        public string NumeroEndereco { get; set; }
 
 
         public int FormaPagamentoId { get; set; }
